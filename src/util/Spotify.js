@@ -1,5 +1,5 @@
-const clientId = ""; //Enter ClientId
-const redirectUri = "http://localhost:3000/";
+const clientId = "1adf6961976d44a1ad34d61fcf8b8700"; //Enter ClientId
+const redirectUri = "https://jammfjor.surge.sh/";
 
 let accessToken = "";
 
