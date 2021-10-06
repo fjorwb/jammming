@@ -18,7 +18,7 @@ class App extends React.Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlayListName = this.updatePlayListName.bind(this);
-    this.savePlayList = this.savePlayList.bind(this);
+    this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
   }
 
@@ -43,9 +43,9 @@ class App extends React.Component {
     this.setState({ playlistName: name });
   }
 
-  savePlayList() {
+  savePlaylist() {
     const trackUris = this.state.playlistTracks.map((track) => track.uri);
-    Spotify.savedPlayList(this.state.playlistName, trackUris).then(() => {
+    Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
       this.setState({
         playlistName: "New Playlist",
         playlistTracks: [],
@@ -74,7 +74,7 @@ class App extends React.Component {
               playlistTracks={this.state.playlistTracks}
               onRemove={this.removeTrack}
               onNameChange={this.updatePlayListName}
-              onSave={this.savePlayList}
+              onSave={this.savePlaylist}
             />
           </div>
         </div>
@@ -82,15 +82,5 @@ class App extends React.Component {
     );
   }
 }
-
-// { name: "name1", artist: "artist1", album: "album1", id: 1 },
-// { name: "name2", artist: "artist2", album: "album2", id: 2 },
-// { name: "name3", artist: "artist3", album: "album3", id: 3 },
-// { name: "name4", artist: "artist4", album: "album4", id: 4 },
-
-// { name: "playlistName1", artist: "playlistArtist1", album: "playlistAlbum1", id: 5 },
-// { name: "playlistName2", artist: "playlistArtist2", album: "playlistAlbum2", id: 6 },
-// { name: "playlistName3", artist: "playlistArtist3", album: "playlistAlbum3", id: 7 },
-// { name: "playlistName4", artist: "playlistArtist4", album: "playlistAlbum4", id: 8 },
 
 export default App;
